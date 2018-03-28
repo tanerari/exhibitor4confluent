@@ -3,7 +3,7 @@ Exhibitor is a supervisor system for Apache ZooKeeper (http://zookeeper.apache.o
 
 Exhibitor4Confluent is ready to use in cluster nodes of Confluent-Platform.
 
-![alt text](https://raw.githubusercontent.com/tanerari/exhibitor4confluent/master/exhibitor4confluent.png)
+![UI-Picture](exhibitor4confluent.png)
 
 ## DETAILS
 
