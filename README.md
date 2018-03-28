@@ -1,15 +1,13 @@
-[![Build Status](https://travis-ci.org/soabase/exhibitor.svg?branch=master)](https://travis-ci.org/soabase/exhibitor) [![Join the chat at https://gitter.im/soabase/exhibitor](https://badges.gitter.im/soabase/exhibitor.svg)](https://gitter.im/soabase/exhibitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-# IMPORTANT NOTE
-
-Exhibitor is now on its own! PLEASE READ THIS NOTE: https://groups.google.com/forum/#!topic/exhibitor-users/PVkcd88mk8c
-
 ## DESCRIPTION
 Exhibitor is a supervisor system for Apache ZooKeeper (http://zookeeper.apache.org/).
 
+Exhibitor4Confluent is ready to use in cluster nodes of Confluent-Platform.
+
+![alt text](https://raw.githubusercontent.com/tanerari/exhibitor4confluent/master/exhibitor4confluent.png)
 
 ## DETAILS
 
+Latest repository files are at https://github.com/soabase/exhibitor
 Please see the doc at https://github.com/Netflix/exhibitor/wiki
 
 ## BUILDING
@@ -17,17 +15,9 @@ Please see the doc at https://github.com/Netflix/exhibitor/wiki
 Exhibitor is built via Maven (https://maven.apache.org/).  
 To build do `mvn install`.
 
-## ARTIFACTS
-
-Exhibitor binaries are published to Maven Central. Please see the docs for details.
-
-## MAILING LIST
-
-There is an Exhibitor mailing list. Join here: http://groups.google.com/group/exhibitor-users
-
 ## AUTHOR
 
-Jordan Zimmerman (jordan@jordanzimmerman.com)
+Taner Ari (tanerari@yahoo.com)
 
 ## LICENSE
 
