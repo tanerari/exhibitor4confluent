@@ -1,0 +1,591 @@
+body
+{
+    font-family: "Arial", "Helvetica", "Verdana", sans-serif;
+    margin: 5px;
+    padding: 5px;
+    font-size: 14px;
+    background-color: #777;
+}
+
+label
+{
+    font-weight: bold;
+    vertical-align: baseline;
+}
+
+.ui-button-text
+{
+    font-size: .85em;
+}
+
+.info
+{
+    padding: 5px;
+}
+
+.text, .full-text, .tab-text
+{
+    font-family: monospace;
+    font-size: 80%;
+    overflow: scroll;
+    white-space: pre;
+}
+
+.text
+{
+    padding: 1px;
+    width: 100%;
+    height: 80%;
+}
+
+.tab-text
+{
+    width: 100%;
+    height: 85%;
+}
+
+#word-4ltr-text, #log-text
+{
+    border-top: 1px solid black;
+    padding-top: 3px;
+}
+
+#log-text
+{
+    margin-top: 3px;
+}
+
+#log-refresh-button
+{
+    float: right;
+}
+
+.tooltip
+{
+    display: none;
+    background-color: #f5f5b5;
+    font-size: 90%;
+    height: 75px;
+    width: 200px;
+    padding: 8px;
+    z-index: 65535;
+}
+
+.row_selected {
+    background-color: #B0BED9;
+}
+
+#index-query-results-table
+{
+   cursor: pointer;
+}
+
+#index-query-results-table tr.even.row_selected td {
+    background-color: #B0BED9;
+}
+
+#index-query-results-table tr.odd.row_selected td {
+    background-color: #9FAFD1;
+}
+
+#not-connected-alert
+{
+    width: 300px;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -150px;
+    z-index: 99999;
+}
+
+#title
+{
+    margin-bottom: 3px;
+    text-shadow: 2px 2px #888;
+    width: 100%;
+    clear: both;
+    border: none;
+    background: none;
+}
+
+#page-title
+{
+    font-size: 2em;
+    font-weight: bold;
+    float: left;
+}
+
+#page-title-extra
+{
+    font-size: 1em;
+    padding-top: 1em;
+    font-weight: normal;
+    float: left;
+    text-shadow: none;
+    color: black;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+#version
+{
+    font-style: italic;
+    float: right;
+    margin-top: 1em;
+    margin-right: 3px;
+}
+
+#tree
+{
+    width: 100%;
+    height: 60%;
+    overflow: scroll;
+    border: 1px solid gray;
+}
+
+#path, #stat, #data-bytes, #data-str
+{
+    font-family: monospace;
+    font-size: 125%;
+}
+
+#config-group
+{
+    line-height: 2em;
+}
+
+#config-group label
+{
+    float: left;
+    width: 225px;
+}
+
+#config-group input
+{
+    float: left;
+}
+
+#config-editable-label
+{
+    float: left;
+    padding-right: 8px;
+}
+
+#base-server-item label
+{
+    float: left;
+    width: 250px;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+#base-server-item input
+{
+    margin-bottom: 8px;
+}
+
+#index-query-dialog label
+{
+    float: left;
+    width: 100px;
+    margin: 3px;
+}
+
+#index-query-dialog input
+{
+    margin: 3px;
+}
+
+#new-index-backup-names
+{
+    margin-left: 25px;
+    width: 350px;
+}
+
+#new-index-backups-section
+{
+    margin-top: 10px;
+}
+
+#index-query-results
+{
+    height: 400px;
+    overflow: scroll;
+    border: 1px solid black;
+    padding: 3px;
+    margin: 5px;
+}
+
+.selectable .ui-selecting
+{
+    background: #FECA40;
+}
+.selectable .ui-selected
+{
+    background: #F39814;
+    color: white;
+}
+.selectable
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+}
+.selectable li
+{
+    margin: 3px;
+    padding: 0.4em;
+    font-size: 1em;
+    height: 1.1em;
+    white-space: nowrap;
+    font-family: monospace;
+
+}
+
+#index-query-results-table td
+{
+    font-family: monospace;
+    white-space: nowrap;
+}
+
+#index-query-results-selected
+{
+    margin-top: 8px;
+    margin-bottom: 16px;
+    white-space: nowrap;
+}
+
+#index-query-results-selected .label
+{
+    float: left;
+    width: 150px;
+    font-weight: bold;
+}
+
+#index-query-results-selected .value
+{
+    font-family: monospace;
+}
+
+#index-query-restore-dialog .label
+{
+    float: left;
+    width: 80px;
+    font-weight: bold;
+}
+
+#tabs-config-controls div
+{
+    float: left;
+    margin-right: 20px;
+}
+
+#tabs-config-controls div div
+{
+    margin-left: 0;
+    margin-top: 10px;
+}
+
+#instance-hostname, #instance-id
+{
+    font-weight: bold;
+}
+
+legend
+{
+    font-size: .9em;
+    color: #555;
+}
+
+fieldset
+{
+    border: 1px solid #888;
+}
+
+.left-label
+{
+    float: left;
+    width: 125px;
+}
+
+.ui-progressbar-value
+{
+    background-image: url(../images/pbar-ani.gif);
+    background-color: #FFF;
+    border: none;
+}
+
+#new-index-loading-progressbar
+{
+    background-color: #FFF;
+    border: none;
+}
+
+#backups-disabled-message
+{
+    padding-top: 8px;
+    padding-bottom: 3px;
+    margin-left: 25px;
+    font-size: .75em;
+    font-style: italic;
+}
+
+.cp-server-item
+{
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.cp-servers-heading
+{
+    padding: 3px;
+    margin-bottom: 16px;
+}
+
+.cp-status-container
+{
+    float: left;
+    width: 2em;
+    padding-top: 1.5em;
+}
+
+.cp-status-message-container
+{
+    float: left;
+}
+
+.cp-status
+{
+    border: 1px solid black;
+    margin-right: 10px;
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    moz-border-radius: 1em;
+    webkit-border-radius: 1em;
+    khtml-border-radius: 1em;
+    background-color: #FFF;
+    box-shadow: 2px 2px 2px #888;
+}
+
+.cp-server-column-wrapper
+{
+    width: 100%;
+}
+
+.cp-server-column
+{
+    float: left;
+    margin-right: 50px;
+}
+
+.cp-server-column button
+{
+    margin-right: 15px;
+}
+
+.cp-this-server
+{
+    font-style: italic;
+    font-size: .75em;
+    margin-left: 10px;
+}
+
+#word-4ltr-text
+{
+    margin-top: 5px;
+}
+
+#log-text
+{
+    height: 95%;
+}
+
+.caution-fieldset
+{
+    border-color: #8b0000;
+}
+
+.caution-legend
+{
+    color: #8b0000;
+    font-weight: bold;
+}
+
+#config-warning
+{
+    float: right;
+}
+
+.config-commit-dialog-icon
+{
+    float: left;
+    margin: 0 7px 100px 0;
+}
+
+#rolling-config-cancel-dialog-icon
+{
+    float: left;
+    margin: 0 7px 50px 0;
+}
+
+#rolling-config-floater
+{
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    width: 500px;
+    height: 300px;
+    margin-left: -250px;
+    border: 2px solid #8b0000;
+    box-shadow: 4px 4px 4px #888;
+    padding: 10px;
+    z-index: 1000;
+    background-color: #fff;
+}
+
+#rolling-config-floater-button-container
+{
+    position: absolute;
+    top: 260px;
+    left: 50%;
+    margin-left: 110px;
+    width: 150px;
+}
+
+#rolling-config-progressbar
+{
+    padding: 1px 3px 1px 3px;
+}
+
+#get-node-data-dialog fieldset
+{
+    margin-top: 8px;
+}
+
+#get-node-data-dialog fieldset label
+{
+    float: left;
+    width: 90px;
+}
+
+#get-node-data-dialog div label
+{
+    float: left;
+    width: 70px;
+}
+
+#get-node-data-dialog div
+{
+    margin-bottom: 3px;
+}
+
+#validate-modify-node-action
+{
+    font-weight: bold;
+}
+
+#validate-modify-node-description
+{
+    font-family: monospace;
+    font-size: 80%;
+}
+
+#node-data-container select
+{
+    float: right;
+}
+
+#analyze-paths-container label
+{
+    float: left;
+    width: 80px;
+}
+
+#analyze-paths-container fieldset
+{
+    margin-bottom: 6px;
+}
+
+#analyze-help, #usage-listing-help
+{
+    font-size: .75em;
+    border: solid 1px #a9a9a9;
+    color: #333333;
+    margin-top: 8px;
+    padding: 3px;
+}
+
+#analyze-results-label
+{
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+#analyze-results
+{
+    font-family: monospace;
+    font-size: 80%;
+    padding: 3px;
+    width: 100%;
+    height: 80%;
+    overflow: scroll;
+    white-space: nowrap;
+    border: 1px solid black;
+}
+
+.on-off-label
+{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: .75em;
+    color: #555;
+}
+
+#get-usage-listing-dialog label
+{
+    float: left;
+    width: 125px;
+}
+
+#standalone-mode-message
+{
+    text-align: center;
+    padding-bottom: 3px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.open-window
+{
+    position: absolute;
+    cursor: pointer;
+}
+
+#node-data
+{
+    resize: none;
+}
+
+.optional
+{
+    font-style: italic;
+    padding-left: 5px;
+}
+
+#config-latent-message
+{
+    position: absolute;
+    border: 1px solid #a9a9a9;
+    font-style: italic;
+    font-weight: bold;
+    padding: 5px;
+    margin-left: -325px;
+    width: 250px;
+    height: 4em;
+    top: 175px;
+    left: 100%;
+    line-height: 125%;
+}
