@@ -7,8 +7,8 @@ Exhibitor4Confluent is ready to use in cluster nodes of Confluent-Platform.
 
 ## DETAILS
 
-Latest repository files are at https://github.com/soabase/exhibitor
-Please see the doc at https://github.com/Netflix/exhibitor/wiki
+Latest repository files are at ( https://github.com/soabase/exhibitor ).  
+Please see the doc at ( https://github.com/Netflix/exhibitor/wiki ).
 
 ## BUILDING
 
