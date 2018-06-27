@@ -40,9 +40,6 @@ public class StandardProcessOperations implements ProcessOperations
     private static final int    SLEEP_KILL_TIME_MS = 100;
     private static final int    SLEEP_KILL_WAIT_COUNT = 3;
 
-    private static final List<String> ksqlMinLevel = Arrays.asList("kafka-rest", "connect");
-    private boolean isKsqlRunning;
-
     public StandardProcessOperations(Exhibitor exhibitor) throws IOException
     {
         this.exhibitor = exhibitor;
@@ -67,16 +64,6 @@ public class StandardProcessOperations implements ProcessOperations
         }else {
             waitForKill(zkPid, "QuorumPeerMain");
         }
-
-        if( this.isKsqlRunning ) {
-            String ksqlPid = getPid("KsqlRestApplication");
-            if (ksqlPid == null) {
-                exhibitor.getLog().add(ActivityLog.Type.INFO, "jps didn't find instance - assuming KSQL-Server is not running");
-            } else {
-                waitForKill(ksqlPid, "KsqlRestApplication");
-            }
-            this.isKsqlRunning = false;
-        }
     }
 
     private ProcessBuilder buildConfluentScript(String operation, String target) throws IOException
@@ -85,23 +72,6 @@ public class StandardProcessOperations implements ProcessOperations
         File binDirectory = new File(details.confluentDirectory, "bin");
         File confluentScript = new File(binDirectory, "confluent");
         return new ProcessBuilder(confluentScript.getAbsolutePath(), operation, target).directory(binDirectory.getParentFile());
-    }
-
-    private ProcessBuilder buildKsqlStartScript() throws IOException
-    {
-        Details details = new Details(exhibitor);
-        File binDirectory = new File(details.ksqlDirectory, "bin");
-        File configFile = new File(details.ksqlDirectory, "config/ksqlserver.properties");
-        File ksqlScript = new File(binDirectory, "ksql-server-start");
-        return new ProcessBuilder(ksqlScript.getAbsolutePath(), "-daemon", configFile.getAbsolutePath()).directory(binDirectory.getParentFile());
-    }
-
-    private ProcessBuilder buildKsqlStopScript() throws IOException
-    {
-        Details details = new Details(exhibitor);
-        File binDirectory = new File(details.ksqlDirectory, "bin");
-        File ksqlScript = new File(binDirectory, "ksql-server-stop");
-        return new ProcessBuilder(ksqlScript.getAbsolutePath()).directory(binDirectory.getParentFile());
     }
 
     @Override
@@ -113,13 +83,7 @@ public class StandardProcessOperations implements ProcessOperations
         Process confluentProcess = confluentBuilder.start();
         exhibitor.getProcessMonitor().monitor(ProcessTypes.CONFLUENT, confluentProcess, null, ProcessMonitor.Mode.LEAVE_RUNNING_ON_INTERRUPT, ProcessMonitor.Streams.BOTH);
         exhibitor.getLog().add(ActivityLog.Type.INFO, "A new process started via: " + confluentBuilder.command().get(0) + " " + confluentBuilder.command().get(1) + " " + confluentBuilder.command().get(2));
-        int result = confluentProcess.waitFor();
-        if( result == 0 && details.ksqlEnabled && !this.isKsqlRunning && details.isValidPath(details.ksqlDirectory) && ksqlMinLevel.contains(details.confluentStartupLevel)) {
-            ProcessBuilder ksqlBuilder = buildKsqlStartScript();
-            exhibitor.getProcessMonitor().monitor(ProcessTypes.KSQL, ksqlBuilder.start(), null, ProcessMonitor.Mode.LEAVE_RUNNING_ON_INTERRUPT, ProcessMonitor.Streams.BOTH);
-            exhibitor.getLog().add(ActivityLog.Type.INFO, "A new process started via: " + ksqlBuilder.command().get(0) + " " + ksqlBuilder.command().get(1) + " " + ksqlBuilder.command().get(2));
-            this.isKsqlRunning = true;
-        }
+        confluentProcess.waitFor();
     }
 
     private void prepareConfigFile(Details details) throws IOException
@@ -210,8 +174,6 @@ public class StandardProcessOperations implements ProcessOperations
         ProcessBuilder builder = null;
         if( "QuorumPeerMain".equals(jpsName) ) {
             builder = force ? new ProcessBuilder("kill", "-9", pid) : buildConfluentScript("stop", "zookeeper");
-        } else if ("KsqlRestApplication".equals(jpsName)) {
-            builder = force ? new ProcessBuilder("kill", "-9", pid) : buildKsqlStopScript();
         }
         if( builder != null ) {
             try {

@@ -172,12 +172,8 @@
                             <option value="schema-registry">schema-registry</option>
                             <option value="kafka-rest">kafka-rest</option>
                             <option value="connect">kafka-connect</option>
+                            <option value="ksql-server">ksql-server</option>
                         </select><br clear="all"/>
-                        <label for="config-ksql-install-dir">KSQL Server Install Dir</label><input type="text" id="config-ksql-install-dir" name="config-ksql-install-dir" size="60" title="The directory where the KSQL is installed"><span class="optional">optional</span><br clear="all"/>
-                        <label for="config-ksql-enabled">KSQL Server Enabled</label><select id="config-ksql-enabled" class="mask-pint" name="config-ksql-enabled" size="1" title="If set to 'yes', KSQL server will be run !">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                    </select><span class="optional">It requires at least <u>'kafka-rest'</u> level of Confluent services !</span>
                         <div id="config-latent-message">
                             NOTE: Until this section is populated Exhibitor will stay in a "latent" state.
                         </div>

@@ -250,8 +250,6 @@ function buildNewConfig()
     newConfig.zookeeperDataDirectory = $('#config-zookeeper-snapshot-dir').val();
     newConfig.zookeeperLogDirectory = $('#config-zookeeper-log-dir').val();
     newConfig.confluentStartupLevel = $('#config-confluent-startup-level').val();
-    newConfig.ksqlInstallDirectory = $('#config-ksql-install-dir').val();
-    newConfig.ksqlEnabled = $('#config-ksql-enabled').val();
     newConfig.logIndexDirectory = $('#config-log-index-dir').val();
     newConfig.autoManageInstancesSettlingPeriodMs = $('#config-automatic-management-period-ms').val();
     newConfig.autoManageInstancesFixedEnsembleSize = $('#config-fixed-ensemble-size').val();
@@ -363,8 +361,6 @@ function ableConfig(enable)
     $('#config-zookeeper-snapshot-dir').prop('disabled', !enable);
     $('#config-zookeeper-log-dir').prop('disabled', !enable);
     $('#config-confluent-startup-level').prop('disabled', !enable);
-    $('#config-ksql-install-dir').prop('disabled', !enable);
-    $('#config-ksql-enabled').prop('disabled', !enable);
     $('#config-automatic-management-period-ms').prop('disabled', !enable);
     $('#config-fixed-ensemble-size').prop('disabled', !enable);
     $('#config-observer-threshold').prop('disabled', !enable);
@@ -410,8 +406,6 @@ function updateConfig()
     $('#config-zookeeper-snapshot-dir').val(systemConfig.zookeeperDataDirectory);
     $('#config-zookeeper-log-dir').val(systemConfig.zookeeperLogDirectory);
     $('#config-confluent-startup-level').val(systemConfig.confluentStartupLevel);
-    $('#config-ksql-install-dir').val(systemConfig.ksqlInstallDirectory);
-    $('#config-ksql-enabled').val(systemConfig.ksqlEnabled);
     $('#config-automatic-management-period-ms').val(systemConfig.autoManageInstancesSettlingPeriodMs);
     $('#config-fixed-ensemble-size').val(systemConfig.autoManageInstancesFixedEnsembleSize);
     $('#config-observer-threshold').val(systemConfig.observerThreshold);
@@ -550,8 +544,6 @@ function checkConfigConfirmation()
         || (newConfig.zookeeperDataDirectory != systemConfig.zookeeperDataDirectory)
         || (newConfig.zookeeperLogDirectory != systemConfig.zookeeperLogDirectory)
         || (newConfig.confluentStartupLevel != systemConfig.confluentStartupLevel)
-        || (newConfig.ksqlInstallDirectory != systemConfig.ksqlInstallDirectory)
-        || (newConfig.ksqlEnabled != systemConfig.ksqlEnabled)
         || (newConfig.serversSpec != systemConfig.serversSpec)
         || (newConfig.clientPort != systemConfig.clientPort)
         || (newConfig.connectPort != systemConfig.connectPort)

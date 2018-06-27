@@ -33,8 +33,6 @@ class Details
     final File logDirectory;
     final Properties properties;
     final String confluentStartupLevel;
-    final File ksqlDirectory;
-    final boolean ksqlEnabled;
 
     Details(Exhibitor exhibitor) throws IOException
     {
@@ -48,8 +46,6 @@ class Details
         this.logDirectory = (cfgLogDir.trim().length() > 0) ? new File(cfgLogDir) : this.dataDirectory;
 
         this.confluentStartupLevel = config.getString(StringConfigs.CONFLUENT_STARTUP_LEVEL);
-        this.ksqlDirectory = new File(config.getString(StringConfigs.KSQL_INSTALL_DIRECTORY));
-        this.ksqlEnabled = config.getInt(IntConfigs.KSQL_ENABLED) > 0;
 
         properties = new Properties();
         if ( isValid() ) {

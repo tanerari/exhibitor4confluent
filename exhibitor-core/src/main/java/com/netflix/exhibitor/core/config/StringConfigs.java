@@ -68,18 +68,9 @@ public enum StringConfigs
 
 
     /**
-     * Can be one of these values 'zookeeper' , 'kafka' , 'schema-registry' , 'kafka-rest' , 'connect'
+     * Can be one of these values 'zookeeper' , 'kafka' , 'schema-registry' , 'kafka-rest' , 'connect' , 'ksql-server'
      */
     CONFLUENT_STARTUP_LEVEL
-    {
-        @Override
-        public boolean isRestartSignificant()
-                {
-                    return true;
-                }
-    },
-
-    KSQL_INSTALL_DIRECTORY
     {
         @Override
         public boolean isRestartSignificant()
